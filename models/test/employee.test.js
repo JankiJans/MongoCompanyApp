@@ -11,10 +11,6 @@ describe('Employee', () => {
       expect(err.errors.lastName).to.exist;
       expect(err.errors.department).to.exist;
     });
-
-    after(() => {
-      mongoose.models = {};
-    });
   });
 
   it('should throw an error if "firstName", "lastName", "department" is not a string', () => {
@@ -40,10 +36,6 @@ describe('Employee', () => {
         expect(err.errors.department).to.exist;
       });
     }
-
-    after(() => {
-        mongoose.models = {};
-      });
   });
 
   it('should not throw an error for valid firstNames, lastNames, departments', () => {
@@ -57,8 +49,5 @@ describe('Employee', () => {
         expect(err).to.not.exist;
       });
     }
-      after(() => {
-        mongoose.models = {};
-      });
   });
 });
