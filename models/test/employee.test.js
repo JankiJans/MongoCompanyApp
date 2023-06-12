@@ -39,15 +39,10 @@ describe('Employee', () => {
   });
 
   it('should not throw an error for valid firstNames, lastNames, departments', () => {
+    const dep = new Employee({ firstName: 'maks', lastName: 'smith', department: 'IT' });
 
-    const validCases = [{ firstName: 'maks', lastName: 'smith', department: 'IT'  }];
-
-    for (let example of validCases) {
-      const dep = new Employee({ example });
-  
-      dep.validate(err => {
-        expect(err).to.not.exist;
-      });
-    }
+    dep.validate((err) => {
+      expect(err).to.not.exist;
+    });
   });
 });
